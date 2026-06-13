@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Jupiter — Europa-ice design tokens
+   (README.md "Design tokens". The amber palette is shelved.)
+   ============================================================ */
+
+@theme {
+  /* Fonts — wired to next/font variables set on <body>. */
+  --font-serif: var(--font-literata), Georgia, serif;
+  --font-sans: var(--font-public-sans), system-ui, sans-serif;
+
+  /* Color — Europa ice */
+  --color-night: #101b24;
+  --color-accent: #74b2bc;
+  --color-accent-bright: #93c7cf;
+  --color-accent-deep: #44808c;
+  --color-ink: #dfe8e6;
+  --color-ink-body: #e0e6e2;
+  --color-ink-body-lg: #e9efea;
+  --color-ink-hover: #f2f7f3;
+  --color-rose: #d8adb4;
+}
+
+:root {
+  /* One ink at varying alpha — rgb() with a slash, e.g.
+     rgb(var(--ink-rgb) / 0.45). Mirrors README's muted-ink scale. */
+  --ink-rgb: 223 232 230;
+  --rose-rgb: 206 160 166;
+  --accent-rgb: 116 178 188;
+
+  /* Sigil fallback rule-divider palette (entries with no sigil). */
+  --rule-fallback-0: #74b2bc;
+  --rule-fallback-1: #9fa3cf;
+  --rule-fallback-2: #9db89a;
+  --rule-fallback-3: #a9b8d8;
+  --rule-fallback-4: #7fb3a6;
+}
+
+html,
+body {
+  background: #101b24;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  /* Sit above the fixed BackgroundField. */
+  position: relative;
+  z-index: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(116, 178, 188, 0.3);
+  color: #f0f6f2;
+}
+
+/* ---- ambient animation; disabled for reduced-motion below ---- */
+@keyframes jtwinkle {
+  0%,
+  100% {
+    opacity: 0.14;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Screen entrance — subtle fade + lift. */
+@keyframes jfade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.jfade {
+  animation: jfade 0.9s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jfade {
+    animation: none;
+  }
+  /* twinkle + parallax are disabled in BackgroundField via JS too. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
