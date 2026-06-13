@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-injected>html,body{background:transparent}</style><script data-omelette-injected>(()=>{var j=["https://claude.ai","https://preview.claude.ai"];var x=true;var S=30000;var f=3000;document.addEventListener("DOMContentLoaded",()=>{const H=window.Babel;const G="om-src-id";if(H&&H.registerPlugin&&!(H.availablePlugins&&H.availablePlugins[G])){H.registerPlugin(G,({types:Y})=>({visitor:{JSXOpeningElement(U,Q){const J=U.node;if(J.name&&J.name.type==="JSXMemberExpression")return;for(let V=0;V<J.attributes.length;V++){const L=J.attributes[V];if(L.type==="JSXAttribute"&&L.name&&L.name.name==="data-om-id")return}const W=Q.file&&Q.file.opts&&Q.file.opts.filename||"?";const Z=J.loc&&J.loc.start;const z=`jsx:${W}:${J.start??0}:${Z?Z.line:0}:${Z?Z.column+1:0}`;J.attributes.push(Y.jsxAttribute(Y.jsxIdentifier("data-om-id"),Y.stringLiteral(z)))}}}))}const k="om-text-extract";let A=false;if(x&&H&&H.registerPlugin&&!(H.availablePlugins&&H.availablePlugins[k])){const Y=window.React;if(Y&&Y.useSyncExternalStore&&Y.createElement){A=true;const U={};const Q=new Set;let J=0;window.__omTextO=U;window.__omTextSet=(z)=>{for(const V in z){const L=z[V];if(L==null)delete U[V];else U[V]=L}J++;Q.forEach((V)=>V())};const W=(z)=>{Q.add(z);return()=>Q.delete(z)};const Z=()=>J;window.__OmT=function z(V){Y.useSyncExternalStore(W,Z,Z);return Y.createElement("span",{"data-om-text":V.i,className:"__om-t"},V.i in U?U[V.i]:V.children)};H.registerPlugin(k,({types:z})=>{const V={style:1,script:1,noscript:1,textarea:1,title:1,option:1,text:1,tspan:1,textPath:1};const L={placeholder:1,alt:1,title:1,label:1,"aria-label":1,"aria-description":1,"aria-placeholder":1};const _=($,C)=>z.logicalExpression("??",z.memberExpression(z.logicalExpression("||",z.memberExpression(z.identifier("window"),z.identifier("__omTextO")),z.objectExpression([])),z.stringLiteral($),true),C);const E=($)=>$.file&&$.file.opts&&$.file.opts.filename||"?";const B=($)=>$.file&&$.file.code||"";const b=($,C)=>{const X=(F)=>F&&F.start!=null&&F.end!=null&&(F.type==="StringLiteral"||F.type==="TemplateLiteral"&&F.expressions.length===0)?[F.start,F.end]:null;const N=X(C);if(N)return N;if(C&&C.type==="Identifier"){const F=$.scope.getBinding(C.name);if(F&&F.constant&&F.path.node.type==="VariableDeclarator"){return X(F.path.node.init)}}return null};const M=($,C,X)=>{const N=$.node;let F=false;const w=(K,q)=>{F=true;return z.jsxElement(z.jsxOpeningElement(z.jsxIdentifier("__OmT"),[z.jsxAttribute(z.jsxIdentifier("i"),z.stringLiteral(K))],false),z.jsxClosingElement(z.jsxIdentifier("__OmT")),[q],false)};const D=N.children.map((K)=>{if(K.type==="JSXText"){if(K.start==null||K.end==null)return K;const q=X.slice(K.start,K.end);const R=q.length-q.trimStart().length;const m=q.length-q.trimEnd().length;if(R+m>=q.length)return K;return w(`txt:${C}:${K.start+R}:${K.end-m}`,K)}if(K.type==="JSXExpressionContainer"){const q=b($,K.expression);if(q)return w(`str:${C}:${q[0]}:${q[1]}`,K)}return K});if(F)N.children=D};return{visitor:{JSXOpeningElement($,C){const X=$.node;const N=E(C);const F={};for(let w=0;w<X.attributes.length;w++){const D=X.attributes[w];if(D.type!=="JSXAttribute"||!D.name)continue;const K=D.name.name;if(!L[K])continue;if(!D.value||D.value.type!=="StringLiteral")continue;if(D.value.start==null||D.value.end==null)continue;const q=`txt:${N}:${D.value.start}:${D.value.end}`;F[K]=q;D.value=z.jsxExpressionContainer(_(q,z.stringLiteral(D.value.value)))}if(Object.keys(F).length){X.attributes.push(z.jsxAttribute(z.jsxIdentifier("data-om-text-attrs"),z.stringLiteral(JSON.stringify(F))))}},JSXElement($,C){const X=$.node.openingElement;const N=X&&X.name&&X.name.name;if(N==="__OmT")return;if(typeof N==="string"&&V[N])return;M($,E(C),B(C))},JSXFragment($,C){M($,E(C),B(C))}}}})}}const u=A?["transform-react-jsx-source",G,k]:["transform-react-jsx-source",G];document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((Y,U)=>{const Q=Y.getAttribute("data-plugins")||"";const J=u.filter((W)=>Q.indexOf(W)<0);if(J.length){Y.setAttribute("data-plugins",Q?`${Q},${J.join(",")}`:J.join(","))}if(!Y.hasAttribute("data-filename")){Y.setAttribute("data-filename",Y.getAttribute("src")||`inline-${U}`)}})});var y=window.parent;if(y&&y!==window){const H=(Q,J)=>{try{y.postMessage({__omelette_log:true,type:Q,data:J},"*")}catch{}};["log","warn","error"].forEach((Q)=>{const J=console[Q];console[Q]=(...W)=>{const Z=W.map((z)=>{try{return typeof z==="object"?JSON.stringify(z):String(z)}catch{try{return String(z)}catch{return"[unstringifiable]"}}}).join(" ");H(Q,Z);J.apply(console,W)}});window.addEventListener("error",(Q)=>{const J=Q.target;if(J&&J!==window&&J.tagName){const W=J.src||J.href||"";H("resource_error",`${J.tagName} failed to load: ${W}`)}else{H("error",`${Q.message||"Unknown error"} at ${Q.filename||"?"}:${Q.lineno||0}:${Q.colno||0}`)}},true);window.addEventListener("unhandledrejection",(Q)=>{const J=Q.reason;const W=J instanceof Error?`${J.message} ${J.stack}`:String(J);H("error",`Unhandled rejection: ${W}`)});const G=()=>{try{y.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(document.readyState==="complete")G();else window.addEventListener("load",G);if(window.ResizeObserver)new ResizeObserver(G).observe(document.documentElement);const k={};let A=0;window.claude={complete(Q){return new Promise((J,W)=>{if(!j.length){W(new Error("claude.complete: no parent origin"));return}const Z=`c${++A}`;const z=()=>setTimeout(()=>{delete k[Z];W(new Error(`claude.complete: no data for ${S/1000}s`))},S);const V=z();k[Z]={resolve:J,reject:W,text:"",t:V,arm:z};try{for(const L of j){y.postMessage({__om_api:true,id:Z,body:Q},L)}}catch(L){clearTimeout(V);delete k[Z];W(L)}})}};const u={};let Y=0;window.omelette={writeFile:(Q,J)=>new Promise((W,Z)=>{if(!j.length){W();return}const z=`f${++Y}`;const V=setTimeout(()=>{delete u[z];W()},f);u[z]={resolve:W,reject:Z,t:V};try{for(const L of j){y.postMessage({__om_file:true,id:z,op:"write",path:Q,content:J},L)}}catch{clearTimeout(V);delete u[z];W()}})};const U=(Q)=>{try{return JSON.stringify(Q)}catch{return JSON.stringify(String(Q))}};window.addEventListener("message",(Q)=>{if(j.indexOf(Q.origin)<0)return;if(Q.source!==y)return;const J=Q.data;if(!J)return;if(J.type==="omelette-preview-refresh"){if(typeof J.token!=="string"||!/^[0-9a-f.-]+(\.(rc|pr-[0-9]+))?(\.[0-9]+\.[0-9a-f]{16})?$/.test(J.token))return;const z=Math.max(1,Math.floor((J.expiresAt||0)-Date.now()/1000));document.cookie="__Host-omelette-preview="+J.token+"; Path=/; Secure; SameSite=None; Partitioned; Max-Age="+z;return}if(J.__om_file_r){const z=u[J.id];if(!z)return;clearTimeout(z.t);delete u[J.id];if(J.ok)z.resolve();else z.reject(new Error(J.error||"write failed"));return}if(J.__om_api_r){const z=k[J.id];if(!z)return;if(J.error!=null){clearTimeout(z.t);delete k[J.id];z.reject(new Error(J.error));return}if(J.chunk!=null){clearTimeout(z.t);z.t=z.arm();z.text+=J.chunk;return}if(J.done){clearTimeout(z.t);delete k[J.id];z.resolve(J.text!=null?J.text:z.text);return}return}if(!J.__om_eval)return;const W=J;const Z=(z)=>{Q.source.postMessage({...z,__om_eval_r:1,id:W.id},Q.origin)};try{const z=(0,eval)(W.code);if(z&&typeof z.then==="function"){z.then((V)=>Z({ok:1,v:U(V)}),(V)=>Z({ok:0,e:String(V)}))}else{Z({ok:1,v:U(z)})}}catch(z){Z({ok:0,e:String(z)})}})}})();
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&amp;family=Public+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #0B0D15; }
+    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  </style>
+</helmet>
+
+<div style="min-height: 100vh; background: #0B0D15; font-family: 'Public Sans', system-ui, sans-serif; padding: 64px 40px 96px 40px; box-sizing: border-box;">
+  <div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px;">
+
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <p style="margin: 0; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: #6E7287;">Jupiter &middot; accent explorations</p>
+      <h1 style="margin: 0; font-family: 'Literata', Georgia, serif; font-weight: 300; font-size: 30px; color: #DDE0EA;">Five tones, same quiet</h1>
+      <p style="margin: 0; max-width: 64ch; font-size: 14px; line-height: 1.65; color: #8A8EA1; text-wrap: pretty;">All accents share roughly the same lightness and low chroma &mdash; only the hue moves. Each sample shows the wordmark, an entry card, the primary action, and the orbit glyph. The main design is untouched.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 40px 36px;">
+
+      <!-- ============ 1 · AMBER DUSK (current) ============ -->
+      <section style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 7px;">
+          <div style="display: flex; align-items: baseline; gap: 12px;">
+            <h2 style="margin: 0; font-family: 'Literata', Georgia, serif; font-weight: 400; font-size: 17px; color: #D9DCE6;">1 &middot; Amber dusk</h2>
+            <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6E7287;">current &mdash; for reference</span>
+          </div>
+          <p style="margin: 0; font-size: 12.5px; line-height: 1.5; color: #8A8EA1;">Candlelight on a dark window. Warm, but you find it unsettling &mdash; kept here to compare against.</p>
+          <div style="display: flex; gap: 16px; margin-top: 3px;">
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #C8956C; border: 1px solid rgba(255,255,255,0.12);"></span><span style="font-family: ui-monospace, monospace; font-size: 11px; color: #7E8296;">#C8956C</span></span>
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #131628; border: 1px solid rgba(255,255,255,0.12);"></span><span style="font-family: ui-monospace, monospace; font-size: 11px; color: #7E8296;">#131628</span></span>
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #EAE4D6; border: 1px solid rgba(255,255,255,0.12);"></span><span style="font-family: ui-monospace, monospace; font-size: 11px; color: #7E8296;">#EAE4D6</span></span>
+          </div>
+        </div>
+        <div style="background: #131628; border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 30px 32px; display: flex; flex-direction: column; gap: 26px;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="display: flex; align-items: center; gap: 9px; font-family: 'Literata', Georgia, serif; font-size: 16px; font-weight: 500; letter-spacing: 0.05em; color: #EAE4D6;">
+              <svg width="12" height="12" viewBox="0 0 14 14" style="display: block;"><circle cx="7" cy="7" r="6" fill="#C8956C"></circle><path d="M 1.6 5 L 12.4 5" stroke="#131628" stroke-width="1.2" opacity="0.6"></path><path d="M 1 8.1 L 13 8.1" stroke="#131628" stroke-width="1.6" opacity="0.6"></path></svg>
+              Jupiter
+            </span>
+            <span style="display: flex; gap: 16px; font-size: 11px; letter-spacing: 0.08em; color: rgba(234,228,214,0.40);"><span style="color: #EAE4D6;">commons</span><span>write</span><span>my diary</span></span>
+          </div>
+          <article style="display: flex; flex-direction: column; gap: 11px;">
+            <div style="display: flex; align-items: center; gap: 9px;">
+              <svg width="13" height="13" viewBox="0 0 13 13" style="display: block;"><circle cx="6.5" cy="6.5" r="5.2" fill="none" stroke="rgba(234,228,214,0.28)" stroke-width="1"></circle><path d="M 6.5 1.3 A 5.2 5.2 0 0 1 6.5 11.7 Z" fill="rgba(234,228,214,0.5)"></path></svg>
+              <span style="font-size: 11.5px; letter-spacing: 0.14em; color: rgba(200,149,108,0.85);">quiet_europa_17</span>
+              <span style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(234,228,214,0.35);">&middot; June 11</span>
+            </div>
+            <div style="width: 70px; height: 2px; border-radius: 2px; background: linear-gradient(to right, #C8956C, transparent); opacity: 0.9;"></div>
+            <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-size: 17px; line-height: 1.75; color: #E8E2D3; text-wrap: pretty;">The moon followed me home tonight too. Forty-one years old, walking from the bus stop, and I checked twice.</p>
+            <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 13px; color: rgba(234,228,214,0.42);">the last bus, just past midnight</p>
+            <span style="font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 13.5px; color: rgba(200,149,108,0.70);">this inspired me</span>
+          </article>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 18px;">
+            <span style="border: 1px solid rgba(200,149,108,0.5); border-radius: 2px; padding: 10px 20px; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #C8956C;">Write your own</span>
+            <svg width="64" height="64" viewBox="0 0 76 76" style="display: block; flex: none;"><circle cx="38" cy="38" r="32" fill="none" stroke="rgba(234,228,214,0.12)" stroke-width="1"></circle><circle cx="38" cy="38" r="22" fill="none" stroke="rgba(234,228,214,0.12)" stroke-width="1"></circle><circle cx="38" cy="38" r="12" fill="none" stroke="rgba(200,149,108,0.6)" stroke-width="1"></circle><circle cx="38" cy="38" r="3" fill="#C8956C"></circle><circle cx="47.5" cy="45.4" r="2.2" fill="#DFAE80"></circle></svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 2 · EUROPA ICE ============ -->
+      <section style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 7px;">
+          <div style="display: flex; align-items: baseline; gap: 12px;">
+            <h2 style="margin: 0; font-family: 'Literata', Georgia, serif; font-weight: 400; font-size: 17px; color: #D9DCE6;">2 &middot; Europa ice</h2>
+            <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6E7287;">metal turquoise</span>
+          </div>
+          <p style="margin: 0; font-size: 12.5px; line-height: 1.5; color: #8A8EA1;">Glacial, instrument-panel calm &mdash; the moon&rsquo;s frozen ocean. Night leans blue-teal; ink cools slightly.</p>
+          <div style="display: flex; gap: 16px; margin-top: 3px;">
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #74B2BC; border: 1px solid rgba(255,255,255,0.12);"></span><span style="font-family: ui-monospace, monospace; font-size: 11px; color: #7E8296;">#74B2BC</span></span>
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #101B24; border: 1px solid rgba(255,255,255,0.12);"></span><span style="font-family: ui-monospace, monospace; font-size: 11px; color: #7E8296;">#101B24</span></span>
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #DFE8E6; border: 1px solid rgba(255,255,255,0.12);"></span><span style="font-family: ui-monospace, monospace; font-size: 11px; color: #7E8296;">#DFE8E6</span></span>
+          </div>
+        </div>
+        <div style="background: #101B24; border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 30px 32px; display: flex; flex-direction: column; gap: 26px;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="display: flex; align-items: center; gap: 9px; font-family: 'Literata', Georgia, serif; font-size: 16px; font-weight: 500; letter-spacing: 0.05em; color: #DFE8E6;">
+              <svg width="12" height="12" viewBox="0 0 14 14" style="display: block;"><circle cx="7" cy="7" r="6" fill="#74B2BC"></circle><path d="M 1.6 5 L 12.4 5" stroke="#101B24" stroke-width="1.2" opacity="0.6"></path><path d="M 1 8.1 L 13 8.1" stroke="#101B24" stroke-width="1.6" opacity="0.6"></path></svg>
+              Jupiter
+            </span>
+            <span style="display: flex; gap: 16px; font-size: 11px; letter-spacing: 0.08em; color: rgba(223,232,230,0.40);"><span style="color: #DFE8E6;">commons</span><span>write</span><span>my diary</span></span>
+          </div>
+          <article style="display: flex; flex-direction: column; gap: 11px;">
+            <div style="display: flex; align-items: center; gap: 9px;">
+              <svg width="13" height="13" viewBox="0 0 13 13" style="display: block;"><circle cx="6.5" cy="6.5" r="5.2" fill="none" stroke="rgba(223,232,230,0.28)" stroke-width="1"></circle><path d="M 6.5 1.3 A 5.2 5.2 0 0 1 6.5 11.7 Z" fill="rgba(223,232,230,0.5)"></path></svg>
+              <span style="font-size: 11.5px; letter-spacing: 0.14em; color: rgba(116,178,188,0.95);">quiet_europa_17</span>
+              <span style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(223,232,230,0.35);">&middot; June 11</span>
+            </div>
+            <div style="width: 70px; height: 2px; border-radius: 2px; background: linear-gradient(to right, #74B2BC, transparent); opacity: 0.9;"></div>
+            <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-size: 17px; line-height: 1.75; color: #E0E6E2; text-wrap: pretty;">The moon followed me home tonight too. Forty-one years old, walking from the bus stop, and I checked twice.</p>
+            <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 13px; color: rgba(223,232,230,0.42);">the last bus, just past midnight</p>
+            <span style="font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 13.5px; color: rgba(116,178,188,0.80);">this inspired me</span>
+          </article>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 18px;">
+            <span style="border: 1px solid rgba(116,178,188,0.5); border-radius: 2px; padding: 10px 20px; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #74B2BC;">Write your own</span>
+            <svg width="64" height="64" viewBox="0 0 76 76" style="display: block; flex: none;"><circle cx="38" cy="38" r="32" fill="none" stroke="rgba(223,232,230,0.12)" stroke-width="1"></circle><circle cx="38" cy="38" r="22" fill="none" stroke="rgba(223,232,230,0.12)" stroke-width="1"></circle><circle cx="38" cy="38" r="12" fill="none" stroke="rgba(116,178,188,0.6)" stroke-width="1"></circle><circle cx="38" cy="38" r="3" fill="#74B2BC"></circle><circle cx="47.5" cy="45.4" r="2.2" fill="#93C7CF"></circle></svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 3 · GANYMEDE STEEL ============ -->
+      <section style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 7px;">
+          <div style="display: flex; align-items: baseline; gap: 12px;">
+            <h2 style="margin: 0; font-family: 'Literata', Georgia, serif; font-weight: 400; font-size: 17px; color: #D9DCE6;">3 &middot; Ganymede steel</h2>
+            <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6E7287;">quiet steel blue</span>
+          </div>
+          <p style="margin: 0; font-size: 12.5px; line-height: 1.5; color: #8A8EA1;">The straightest blue of the set &mdash; moonlight on brushed metal. Closest in feel to ink on paper at night.</p>
+          <div style="display: flex; gap: 16px; margin-top: 3px;">
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #8BA7CF; border: 1px solid rgba(255,255,255,0.12);"></span><span style="font-family: ui-monospace, monospace; font-size: 11px; color: #7E8296;">#8BA7CF</span></span>
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #111729; border: 1px solid rgba(255,255,255,0.12);"></span><span style="font-family: ui-monospace, monospace; font-size: 11px; color: #7E8296;">#111729</span></span>
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #E1E5EE; border: 1px solid rgba(255,255,255,0.12);"></span><span style="font-family: ui-monospace, monospace; font-size: 11px; color: #7E8296;">#E1E5EE</span></span>
+          </div>
+        </div>
+        <div style="background: #111729; border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 30px 32px; display: flex; flex-direction: column; gap: 26px;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="display: flex; align-items: center; gap: 9px; font-family: 'Literata', Georgia, serif; font-size: 16px; font-weight: 500; letter-spacing: 0.05em; color: #E1E5EE;">
+              <svg width="12" height="12" viewBox="0 0 14 14" style="display: block;"><circle cx="7" cy="7" r="6" fill="#8BA7CF"></circle><path d="M 1.6 5 L 12.4 5" stroke="#111729" stroke-width="1.2" opacity="0.6"></path><path d="M 1 8.1 L 13 8.1" stroke="#111729" stroke-width="1.6" opacity="0.6"></path></svg>
+              Jupiter
+            </span>
+            <span style="display: flex; gap: 16px; font-size: 11px; letter-spacing: 0.08em; color: rgba(225,229,238,0.40);"><span style="color: #E1E5EE;">commons</span><span>write</span><span>my diary</span></span>
+          </div>
+          <article style="display: flex; flex-direction: column; gap: 11px;">
+            <div style="display: flex; align-items: center; gap: 9px;">
+              <svg width="13" height="13" viewBox="0 0 13 13" style="display: block;"><circle cx="6.5" cy="6.5" r="5.2" fill="none" stroke="rgba(225,229,238,0.28)" stroke-width="1"></circle><path d="M 6.5 1.3 A 5.2 5.2 0 0 1 6.5 11.7 Z" fill="rgba(225,229,238,0.5)"></path></svg>
+              <span style="font-size: 11.5px; letter-spacing: 0.14em; color: rgba(139,167,207,0.95);">quiet_europa_17</span>
+              <span style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(225,229,238,0.35);">&middot; June 11</span>
+            </div>
+            <div style="width: 70px; height: 2px; border-radius: 2px; background: linear-gradient(to right, #8BA7CF, transparent); opacity: 0.9;"></div>
+            <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-size: 17px; line-height: 1.75; color: #E3E6ED; text-wrap: pretty;">The moon followed me home tonight too. Forty-one years old, walking from the bus stop, and I checked twice.</p>
+            <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 13px; color: rgba(225,229,238,0.42);">the last bus, just past midnight</p>
+            <span style="font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 13.5px; color: rgba(139,167,207,0.80);">this inspired me</span>
+          </article>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 18px;">
+            <span style="border: 1px solid rgba(139,167,207,0.5); border-radius: 2px; padding: 10px 20px; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #8BA7CF;">Write your own</span>
+            <svg width="64" height="64" viewBox="0 0 76 76" style="display: block; flex: none;"><circle cx="38" cy="38" r="32" fill="none" stroke="rgba(225,229,238,0.12)" stroke-width="1"></circle><circle cx="38" cy="38" r="22" fill="none" stroke="rgba(225,229,238,0.12)" stroke-width="1"></circle><circle cx="38" cy="38" r="12" fill="none" stroke="rgba(139,167,207,0.6)" stroke-width="1"></circle><circle cx="38" cy="38" r="3" fill="#8BA7CF"></circle><circle cx="47.5" cy="45.4" r="2.2" fill="#A6BDDC"></circle></svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 4 · LICHEN ============ -->
+      <section style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 7px;">
+          <div style="display: flex; align-items: baseline; gap: 12px;">
+            <h2 style="margin: 0; font-family: 'Literata', Georgia, serif; font-weight: 400; font-size: 17px; color: #D9DCE6;">4 &middot; Lichen</h2>
+            <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6E7287;">gray-green</span>
+          </div>
+          <p style="margin: 0; font-size: 12.5px; line-height: 1.5; color: #8A8EA1;">Moss in moonlight. The gentlest of the alternatives &mdash; reads almost neutral until it sits next to the others.</p>
+          <div style="display: flex; gap: 16px; margin-top: 3px;">
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #92B5A0; border: 1px solid rgba(255,255,255,0.12);"></span><span style="font-family: ui-monospace, monospace; font-size: 11px; color: #7E8296;">#92B5A0</span></span>
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #121A1E; border: 1px solid rgba(255,255,255,0.12);"></span><span style="font-family: ui-monospace, monospace; font-size: 11px; color: #7E8296;">#121A1E</span></span>
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #E2E7DE; border: 1px solid rgba(255,255,255,0.12);"></span><span style="font-family: ui-monospace, monospace; font-size: 11px; color: #7E8296;">#E2E7DE</span></span>
+          </div>
+        </div>
+        <div style="background: #121A1E; border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 30px 32px; display: flex; flex-direction: column; gap: 26px;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="display: flex; align-items: center; gap: 9px; font-family: 'Literata', Georgia, serif; font-size: 16px; font-weight: 500; letter-spacing: 0.05em; color: #E2E7DE;">
+              <svg width="12" height="12" viewBox="0 0 14 14" style="display: block;"><circle cx="7" cy="7" r="6" fill="#92B5A0"></circle><path d="M 1.6 5 L 12.4 5" stroke="#121A1E" stroke-width="1.2" opacity="0.6"></path><path d="M 1 8.1 L 13 8.1" stroke="#121A1E" stroke-width="1.6" opacity="0.6"></path></svg>
+              Jupiter
+            </span>
+            <span style="display: flex; gap: 16px; font-size: 11px; letter-spacing: 0.08em; color: rgba(226,231,222,0.40);"><span style="color: #E2E7DE;">commons</span><span>write</span><span>my diary</span></span>
+          </div>
+          <article style="display: flex; flex-direction: column; gap: 11px;">
+            <div style="display: flex; align-items: center; gap: 9px;">
+              <svg width="13" height="13" viewBox="0 0 13 13" style="display: block;"><circle cx="6.5" cy="6.5" r="5.2" fill="none" stroke="rgba(226,231,222,0.28)" stroke-width="1"></circle><path d="M 6.5 1.3 A 5.2 5.2 0 0 1 6.5 11.7 Z" fill="rgba(226,231,222,0.5)"></path></svg>
+              <span style="font-size: 11.5px; letter-spacing: 0.14em; color: rgba(146,181,160,0.95);">quiet_europa_17</span>
+              <span style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(226,231,222,0.35);">&middot; June 11</span>
+            </div>
+            <div style="width: 70px; height: 2px; border-radius: 2px; background: linear-gradient(to right, #92B5A0, transparent); opacity: 0.9;"></div>
+            <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-size: 17px; line-height: 1.75; color: #E3E7DF; text-wrap: pretty;">The moon followed me home tonight too. Forty-one years old, walking from the bus stop, and I checked twice.</p>
+            <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 13px; color: rgba(226,231,222,0.42);">the last bus, just past midnight</p>
+            <span style="font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 13.5px; color: rgba(146,181,160,0.80);">this inspired me</span>
+          </article>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 18px;">
+            <span style="border: 1px solid rgba(146,181,160,0.5); border-radius: 2px; padding: 10px 20px; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #92B5A0;">Write your own</span>
+            <svg width="64" height="64" viewBox="0 0 76 76" style="display: block; flex: none;"><circle cx="38" cy="38" r="32" fill="none" stroke="rgba(226,231,222,0.12)" stroke-width="1"></circle><circle cx="38" cy="38" r="22" fill="none" stroke="rgba(226,231,222,0.12)" stroke-width="1"></circle><circle cx="38" cy="38" r="12" fill="none" stroke="rgba(146,181,160,0.6)" stroke-width="1"></circle><circle cx="38" cy="38" r="3" fill="#92B5A0"></circle><circle cx="47.5" cy="45.4" r="2.2" fill="#ABCBB6"></circle></svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 5 · MOONSTONE ============ -->
+      <section style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 7px;">
+          <div style="display: flex; align-items: baseline; gap: 12px;">
+            <h2 style="margin: 0; font-family: 'Literata', Georgia, serif; font-weight: 400; font-size: 17px; color: #D9DCE6;">5 &middot; Moonstone</h2>
+            <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6E7287;">near-neutral silver</span>
+          </div>
+          <p style="margin: 0; font-size: 12.5px; line-height: 1.5; color: #8A8EA1;">Almost no hue at all &mdash; pale champagne-silver. The quietest option; accent reads as emphasis, not color.</p>
+          <div style="display: flex; gap: 16px; margin-top: 3px;">
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #BDB6A0; border: 1px solid rgba(255,255,255,0.12);"></span><span style="font-family: ui-monospace, monospace; font-size: 11px; color: #7E8296;">#BDB6A0</span></span>
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #15141E; border: 1px solid rgba(255,255,255,0.12);"></span><span style="font-family: ui-monospace, monospace; font-size: 11px; color: #7E8296;">#15141E</span></span>
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #E7E4DA; border: 1px solid rgba(255,255,255,0.12);"></span><span style="font-family: ui-monospace, monospace; font-size: 11px; color: #7E8296;">#E7E4DA</span></span>
+          </div>
+        </div>
+        <div style="background: #15141E; border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 30px 32px; display: flex; flex-direction: column; gap: 26px;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="display: flex; align-items: center; gap: 9px; font-family: 'Literata', Georgia, serif; font-size: 16px; font-weight: 500; letter-spacing: 0.05em; color: #E7E4DA;">
+              <svg width="12" height="12" viewBox="0 0 14 14" style="display: block;"><circle cx="7" cy="7" r="6" fill="#BDB6A0"></circle><path d="M 1.6 5 L 12.4 5" stroke="#15141E" stroke-width="1.2" opacity="0.6"></path><path d="M 1 8.1 L 13 8.1" stroke="#15141E" stroke-width="1.6" opacity="0.6"></path></svg>
+              Jupiter
+            </span>
+            <span style="display: flex; gap: 16px; font-size: 11px; letter-spacing: 0.08em; color: rgba(231,228,218,0.40);"><span style="color: #E7E4DA;">commons</span><span>write</span><span>my diary</span></span>
+          </div>
+          <article style="display: flex; flex-direction: column; gap: 11px;">
+            <div style="display: flex; align-items: center; gap: 9px;">
+              <svg width="13" height="13" viewBox="0 0 13 13" style="display: block;"><circle cx="6.5" cy="6.5" r="5.2" fill="none" stroke="rgba(231,228,218,0.28)" stroke-width="1"></circle><path d="M 6.5 1.3 A 5.2 5.2 0 0 1 6.5 11.7 Z" fill="rgba(231,228,218,0.5)"></path></svg>
+              <span style="font-size: 11.5px; letter-spacing: 0.14em; color: rgba(189,182,160,0.95);">quiet_europa_17</span>
+              <span style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(231,228,218,0.35);">&middot; June 11</span>
+            </div>
+            <div style="width: 70px; height: 2px; border-radius: 2px; background: linear-gradient(to right, #BDB6A0, transparent); opacity: 0.9;"></div>
+            <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-size: 17px; line-height: 1.75; color: #E6E3D9; text-wrap: pretty;">The moon followed me home tonight too. Forty-one years old, walking from the bus stop, and I checked twice.</p>
+            <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 13px; color: rgba(231,228,218,0.42);">the last bus, just past midnight</p>
+            <span style="font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 13.5px; color: rgba(189,182,160,0.85);">this inspired me</span>
+          </article>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 18px;">
+            <span style="border: 1px solid rgba(189,182,160,0.5); border-radius: 2px; padding: 10px 20px; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #BDB6A0;">Write your own</span>
+            <svg width="64" height="64" viewBox="0 0 76 76" style="display: block; flex: none;"><circle cx="38" cy="38" r="32" fill="none" stroke="rgba(231,228,218,0.12)" stroke-width="1"></circle><circle cx="38" cy="38" r="22" fill="none" stroke="rgba(231,228,218,0.12)" stroke-width="1"></circle><circle cx="38" cy="38" r="12" fill="none" stroke="rgba(189,182,160,0.6)" stroke-width="1"></circle><circle cx="38" cy="38" r="3" fill="#BDB6A0"></circle><circle cx="47.5" cy="45.4" r="2.2" fill="#D2CCB8"></circle></svg>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 13.5px; color: #6E7287;">The main design is untouched. Pick one &mdash; or a mix (e.g. Europa ice accents on the current indigo night) &mdash; and I&rsquo;ll apply it across all five screens.</p>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

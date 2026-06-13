@@ -9,6 +9,40 @@ as `ARCHITECTURE.md` and update it as decisions change.
 
 ---
 
+## Changes from v0.2 (design reconciliation)
+
+Reconciled with the Europa-ice design bundle (`design_handoff_jupiter/`). Where
+the design changed a product decision, the doc, DB, and UI were updated together
+(schema: `supabase/migrations/002_design_reconciliation.sql`). The design bundle
+prevails on product behaviour, UX, copy, and visuals; the database remains the
+enforcement referee.
+
+1. **Sigils replace image attachments.** Compose offers an optional line-art
+   *sigil* (a fixed set of glyphs) instead of an image upload. Added
+   `posts.sigil`; the allowed set lives in `app_settings.sigils` (kept flexible —
+   initial state, not a hard enum). Image upload + the `post-images` Storage
+   bucket move to the backlog (milestone retained, dropped from compose).
+2. **Edit lock.** Authors can edit **and** delete their own posts **until the
+   post has descendants** (someone was inspired by it); after that **edit is
+   locked, delete remains**. Enforced by a DB trigger; admins bypass.
+3. **Withdrawn vs gone.** Delete is always soft (`deleted_at`). Deleting a post
+   that has descendants leaves a faded *withdrawn* trace in lineage; deleting a
+   leaf removes it from view. Positional — no new column. `inspired_by_id` stays
+   immutable regardless.
+4. **Admin tools** are a real feature, not backlog. Membership comes from a
+   backend-configured `admins` table (never a client flag); admins may edit or
+   soft-delete **any public post** under the same withdrawn-vs-gone rule,
+   enforced by `is_admin()` + RLS.
+5. **Tier thresholds** match the design's orbit math: Io 0 / Europa 50 /
+   Ganymede **140** / Callisto **300** (was 150 / 400). Caps unchanged
+   (3 / 4 / 5 / 6).
+6. **Context note ≤ 120.** Kept the generous value; the prototype's 80 is a
+   preview artifact, not the rule.
+7. **Palette:** Europa-ice tokens (`README.md`) are the target; the amber files
+   in `reference/` are shelved.
+
+---
+
 ## 1. Stack
 
 | Layer        | Choice                                   | Notes |
@@ -18,8 +52,9 @@ as `ARCHITECTURE.md` and update it as decisions change.
 | Backend      | Supabase (free tier)                     | Postgres + pgvector + Auth + Storage + Edge Functions |
 | Auth         | Supabase Auth, Google OAuth provider     | Pseudonym auto-generated on first sign-in (DB trigger) |
 | Embeddings   | Supabase Edge Function running `gte-small` (384-dim) | Triggered after post insert; writes `posts.embedding` |
-| Images       | Supabase Storage, bucket `post-images`   | Optional, one per post; AI-generated images = backlog |
-| Schema       | `jupiter_schema_v0_2.sql`                | Single source of truth; all business rules live in DB |
+| Sigils       | Fixed line-art glyph set in `app_settings.sigils` | Optional, one per post (`posts.sigil`); set is tunable |
+| Images       | Supabase Storage, bucket `post-images`   | **Backlog** — superseded by sigils in compose; not built yet |
+| Schema       | `supabase/migrations/*.sql`              | Single source of truth; all business rules live in DB |
 
 Principle: **the database is the referee.** Daily caps, point awards,
 inspirer immutability, and privacy are enforced by triggers and RLS,
@@ -64,12 +99,35 @@ profile with a generated pseudonym (`quiet_callisto_42` style). The app never
 displays the Google identity anywhere.
 
 ### Compose
-Fields: body (<=480 chars, live counter), optional context note (<=120),
-optional image upload, optional inspirer (preselected when arriving via
-"this inspired me" on another post), visibility toggle — **default private**.
-On insert the DB enforces the daily cap; surface the remaining-posts count
-in the UI before submission (query: posts today vs `user_daily_cap()`).
-After insert, invoke the `embed-post` Edge Function (DB webhook or direct call).
+Fields: body (<=480 chars, live counter), optional context note (<=120 — the
+prototype caps at 80 for preview only; **120 is the rule**), optional **sigil**
+(one of the fixed set in `app_settings.sigils`; line-art glyph, not an image),
+optional inspirer (preselected when arriving via "this inspired me" on another
+post), visibility toggle — **default private**. On insert the DB enforces the
+daily cap; surface the remaining-posts count in the UI before submission (query:
+posts today vs `user_daily_cap()`). After insert, invoke the `embed-post` Edge
+Function (DB webhook or direct call). The same screen handles **edit** (own posts
+when unlocked, or any public post for admins).
+
+### Edit & delete
+- **Edit** is allowed on a post **until it has descendants** (someone was
+  inspired by it). Once it does, **edit is locked and only delete remains** — the
+  page others built on must not shift under them. Enforced by the
+  `posts_edit_lock` trigger; the UI mirrors it (hides edit) for UX. Admins bypass.
+- **Delete is always soft** (`deleted_at`; never `DELETE FROM posts`):
+  - a post **with descendants** becomes a faded **withdrawn** trace in lineage;
+  - a **leaf** post is removed from view ("gone entirely").
+  Which one applies is positional (`has_descendants()`), not a stored flag.
+- `inspired_by_id` is immutable in every case (existing trigger).
+
+### Admin
+Admin membership comes from the backend-configured `admins` table — never a
+client flag. The client may read **only its own** admin row to surface admin
+affordances (`adminMode`); `is_admin()` is the authoritative check used by RLS.
+Admins may **edit or soft-delete any public post**, under the same
+withdrawn-vs-gone rule; edits overwrite body/context/sigil only, never authorship
+or `inspired_by_id`. To grant admin, insert a row out-of-band (service role / SQL
+editor): `insert into admins (user_id) values ('<profile uuid>');`.
 
 ### Feed (the commons)
 Public, non-deleted posts, newest first, paginated. Each card: pseudonym,
@@ -106,12 +164,14 @@ still works); privacy is enforced at query time by `resonant_posts()`.
    with cap indicator.
 3. **The soul** — inspiration links, lineage tree, points/tiers on `/me`.
 4. **Resonance** — embedding Edge Function + resonant kin on post page.
-5. **Images** — Storage upload, display.
-6. **Polish** — Claude Design system applied end to end; PWA manifest
-   (installable; groundwork for the later lightweight app).
+5. **Images** — *(backlog)* Storage upload + display; superseded by sigils in
+   the compose flow, milestone retained for a possible future image feature.
+6. **Polish & admin** — Claude Design system applied end to end; `AdminControls`
+   + admin RLS exercised; `prefers-reduced-motion` (disable twinkle + parallax);
+   PWA manifest (installable; groundwork for the later lightweight app).
 
-Backlog: AI-generated images for text-only posts; resonance clustering;
-public/private stance refinements; moderation tooling.
+Sigils ship in milestone 2 (compose flow). Backlog: AI-generated images for
+text-only posts; resonance clustering; public/private stance refinements.
 
 ## 6. Workflow
 
@@ -129,7 +189,11 @@ public/private stance refinements; moderation tooling.
 - Never expose `SUPABASE_SERVICE_ROLE_KEY` to the client.
 - All times stored/compared in UTC; the daily cap day boundary is UTC.
 - Keep `app_settings` the single home for tunables (cap, tiers, threshold,
-  char limits); read them server-side, don't hardcode.
+  char limits, **sigil set**); read them server-side, don't hardcode.
 - Soft delete only (`deleted_at`); never `DELETE FROM posts`.
 - `inspired_by_id` is immutable — set at creation, enforced by trigger.
+- Content edits are locked once a post has descendants (delete still allowed);
+  enforced by the `posts_edit_lock` trigger. Admins bypass via `is_admin()`.
+- Admin membership lives in the `admins` table (backend-configured); never trust
+  a client-side admin flag.
 - Resonance is a phrase, never a number, anywhere in the UI.

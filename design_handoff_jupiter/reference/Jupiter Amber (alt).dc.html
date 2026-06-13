@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-injected>html,body{background:transparent}</style><script data-omelette-injected>(()=>{var j=["https://claude.ai","https://preview.claude.ai"];var x=true;var S=30000;var f=3000;document.addEventListener("DOMContentLoaded",()=>{const H=window.Babel;const G="om-src-id";if(H&&H.registerPlugin&&!(H.availablePlugins&&H.availablePlugins[G])){H.registerPlugin(G,({types:Y})=>({visitor:{JSXOpeningElement(U,Q){const J=U.node;if(J.name&&J.name.type==="JSXMemberExpression")return;for(let V=0;V<J.attributes.length;V++){const L=J.attributes[V];if(L.type==="JSXAttribute"&&L.name&&L.name.name==="data-om-id")return}const W=Q.file&&Q.file.opts&&Q.file.opts.filename||"?";const Z=J.loc&&J.loc.start;const z=`jsx:${W}:${J.start??0}:${Z?Z.line:0}:${Z?Z.column+1:0}`;J.attributes.push(Y.jsxAttribute(Y.jsxIdentifier("data-om-id"),Y.stringLiteral(z)))}}}))}const k="om-text-extract";let A=false;if(x&&H&&H.registerPlugin&&!(H.availablePlugins&&H.availablePlugins[k])){const Y=window.React;if(Y&&Y.useSyncExternalStore&&Y.createElement){A=true;const U={};const Q=new Set;let J=0;window.__omTextO=U;window.__omTextSet=(z)=>{for(const V in z){const L=z[V];if(L==null)delete U[V];else U[V]=L}J++;Q.forEach((V)=>V())};const W=(z)=>{Q.add(z);return()=>Q.delete(z)};const Z=()=>J;window.__OmT=function z(V){Y.useSyncExternalStore(W,Z,Z);return Y.createElement("span",{"data-om-text":V.i,className:"__om-t"},V.i in U?U[V.i]:V.children)};H.registerPlugin(k,({types:z})=>{const V={style:1,script:1,noscript:1,textarea:1,title:1,option:1,text:1,tspan:1,textPath:1};const L={placeholder:1,alt:1,title:1,label:1,"aria-label":1,"aria-description":1,"aria-placeholder":1};const _=($,C)=>z.logicalExpression("??",z.memberExpression(z.logicalExpression("||",z.memberExpression(z.identifier("window"),z.identifier("__omTextO")),z.objectExpression([])),z.stringLiteral($),true),C);const E=($)=>$.file&&$.file.opts&&$.file.opts.filename||"?";const B=($)=>$.file&&$.file.code||"";const b=($,C)=>{const X=(F)=>F&&F.start!=null&&F.end!=null&&(F.type==="StringLiteral"||F.type==="TemplateLiteral"&&F.expressions.length===0)?[F.start,F.end]:null;const N=X(C);if(N)return N;if(C&&C.type==="Identifier"){const F=$.scope.getBinding(C.name);if(F&&F.constant&&F.path.node.type==="VariableDeclarator"){return X(F.path.node.init)}}return null};const M=($,C,X)=>{const N=$.node;let F=false;const w=(K,q)=>{F=true;return z.jsxElement(z.jsxOpeningElement(z.jsxIdentifier("__OmT"),[z.jsxAttribute(z.jsxIdentifier("i"),z.stringLiteral(K))],false),z.jsxClosingElement(z.jsxIdentifier("__OmT")),[q],false)};const D=N.children.map((K)=>{if(K.type==="JSXText"){if(K.start==null||K.end==null)return K;const q=X.slice(K.start,K.end);const R=q.length-q.trimStart().length;const m=q.length-q.trimEnd().length;if(R+m>=q.length)return K;return w(`txt:${C}:${K.start+R}:${K.end-m}`,K)}if(K.type==="JSXExpressionContainer"){const q=b($,K.expression);if(q)return w(`str:${C}:${q[0]}:${q[1]}`,K)}return K});if(F)N.children=D};return{visitor:{JSXOpeningElement($,C){const X=$.node;const N=E(C);const F={};for(let w=0;w<X.attributes.length;w++){const D=X.attributes[w];if(D.type!=="JSXAttribute"||!D.name)continue;const K=D.name.name;if(!L[K])continue;if(!D.value||D.value.type!=="StringLiteral")continue;if(D.value.start==null||D.value.end==null)continue;const q=`txt:${N}:${D.value.start}:${D.value.end}`;F[K]=q;D.value=z.jsxExpressionContainer(_(q,z.stringLiteral(D.value.value)))}if(Object.keys(F).length){X.attributes.push(z.jsxAttribute(z.jsxIdentifier("data-om-text-attrs"),z.stringLiteral(JSON.stringify(F))))}},JSXElement($,C){const X=$.node.openingElement;const N=X&&X.name&&X.name.name;if(N==="__OmT")return;if(typeof N==="string"&&V[N])return;M($,E(C),B(C))},JSXFragment($,C){M($,E(C),B(C))}}}})}}const u=A?["transform-react-jsx-source",G,k]:["transform-react-jsx-source",G];document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((Y,U)=>{const Q=Y.getAttribute("data-plugins")||"";const J=u.filter((W)=>Q.indexOf(W)<0);if(J.length){Y.setAttribute("data-plugins",Q?`${Q},${J.join(",")}`:J.join(","))}if(!Y.hasAttribute("data-filename")){Y.setAttribute("data-filename",Y.getAttribute("src")||`inline-${U}`)}})});var y=window.parent;if(y&&y!==window){const H=(Q,J)=>{try{y.postMessage({__omelette_log:true,type:Q,data:J},"*")}catch{}};["log","warn","error"].forEach((Q)=>{const J=console[Q];console[Q]=(...W)=>{const Z=W.map((z)=>{try{return typeof z==="object"?JSON.stringify(z):String(z)}catch{try{return String(z)}catch{return"[unstringifiable]"}}}).join(" ");H(Q,Z);J.apply(console,W)}});window.addEventListener("error",(Q)=>{const J=Q.target;if(J&&J!==window&&J.tagName){const W=J.src||J.href||"";H("resource_error",`${J.tagName} failed to load: ${W}`)}else{H("error",`${Q.message||"Unknown error"} at ${Q.filename||"?"}:${Q.lineno||0}:${Q.colno||0}`)}},true);window.addEventListener("unhandledrejection",(Q)=>{const J=Q.reason;const W=J instanceof Error?`${J.message} ${J.stack}`:String(J);H("error",`Unhandled rejection: ${W}`)});const G=()=>{try{y.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(document.readyState==="complete")G();else window.addEventListener("load",G);if(window.ResizeObserver)new ResizeObserver(G).observe(document.documentElement);const k={};let A=0;window.claude={complete(Q){return new Promise((J,W)=>{if(!j.length){W(new Error("claude.complete: no parent origin"));return}const Z=`c${++A}`;const z=()=>setTimeout(()=>{delete k[Z];W(new Error(`claude.complete: no data for ${S/1000}s`))},S);const V=z();k[Z]={resolve:J,reject:W,text:"",t:V,arm:z};try{for(const L of j){y.postMessage({__om_api:true,id:Z,body:Q},L)}}catch(L){clearTimeout(V);delete k[Z];W(L)}})}};const u={};let Y=0;window.omelette={writeFile:(Q,J)=>new Promise((W,Z)=>{if(!j.length){W();return}const z=`f${++Y}`;const V=setTimeout(()=>{delete u[z];W()},f);u[z]={resolve:W,reject:Z,t:V};try{for(const L of j){y.postMessage({__om_file:true,id:z,op:"write",path:Q,content:J},L)}}catch{clearTimeout(V);delete u[z];W()}})};const U=(Q)=>{try{return JSON.stringify(Q)}catch{return JSON.stringify(String(Q))}};window.addEventListener("message",(Q)=>{if(j.indexOf(Q.origin)<0)return;if(Q.source!==y)return;const J=Q.data;if(!J)return;if(J.type==="omelette-preview-refresh"){if(typeof J.token!=="string"||!/^[0-9a-f.-]+(\.(rc|pr-[0-9]+))?(\.[0-9]+\.[0-9a-f]{16})?$/.test(J.token))return;const z=Math.max(1,Math.floor((J.expiresAt||0)-Date.now()/1000));document.cookie="__Host-omelette-preview="+J.token+"; Path=/; Secure; SameSite=None; Partitioned; Max-Age="+z;return}if(J.__om_file_r){const z=u[J.id];if(!z)return;clearTimeout(z.t);delete u[J.id];if(J.ok)z.resolve();else z.reject(new Error(J.error||"write failed"));return}if(J.__om_api_r){const z=k[J.id];if(!z)return;if(J.error!=null){clearTimeout(z.t);delete k[J.id];z.reject(new Error(J.error));return}if(J.chunk!=null){clearTimeout(z.t);z.t=z.arm();z.text+=J.chunk;return}if(J.done){clearTimeout(z.t);delete k[J.id];z.resolve(J.text!=null?J.text:z.text);return}return}if(!J.__om_eval)return;const W=J;const Z=(z)=>{Q.source.postMessage({...z,__om_eval_r:1,id:W.id},Q.origin)};try{const z=(0,eval)(W.code);if(z&&typeof z.then==="function"){z.then((V)=>Z({ok:1,v:U(V)}),(V)=>Z({ok:0,e:String(V)}))}else{Z({ok:1,v:U(z)})}}catch(z){Z({ok:0,e:String(z)})}})}})();
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&amp;family=Public+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #131628; }
+    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    @keyframes jfade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    @keyframes jtwinkle { 0%, 100% { opacity: 0.14; } 50% { opacity: 0.6; } }
+    ::selection { background: rgba(200,149,108,0.30); color: #F6F1E4; }
+    textarea::placeholder { color: rgba(234,228,214,0.30); font-style: italic; }
+    textarea:focus { outline: none; }
+  </style>
+</helmet>
+
+<div style="min-height: 100vh; background: radial-gradient(ellipse 90% 42% at 50% -8%, rgba(200,149,108,0.07), transparent 65%), #131628; color: #EAE4D6; font-family: 'Public Sans', system-ui, sans-serif; position: relative; overflow-x: hidden;">
+
+  {{ bgLayer }}
+
+  <!-- faint orbital arcs -->
+  <svg viewBox="0 0 1200 300" preserveAspectRatio="xMidYMin slice" style="position: absolute; top: 0; left: 0; width: 100%; height: 300px; pointer-events: none; display: block;">
+    <circle cx="600" cy="-540" r="700" fill="none" stroke="rgba(234,228,214,0.05)" stroke-width="1"></circle>
+    <circle cx="600" cy="-540" r="775" fill="none" stroke="rgba(200,149,108,0.08)" stroke-width="1"></circle>
+    <circle cx="600" cy="-540" r="860" fill="none" stroke="rgba(234,228,214,0.04)" stroke-width="1"></circle>
+    <circle cx="855" cy="180" r="2" fill="rgba(200,149,108,0.5)"></circle>
+  </svg>
+
+  <!-- chrome -->
+  <header style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; max-width: 680px; margin: 0 auto; padding: 38px 28px 0 28px;">
+    <button onClick="{{ goTonight }}" style="display: flex; align-items: center; gap: 10px; background: none; border: none; padding: 0; cursor: pointer; font-family: 'Literata', Georgia, serif; font-size: 19px; font-weight: 500; letter-spacing: 0.05em; color: #EAE4D6;">
+      <svg width="14" height="14" viewBox="0 0 14 14" style="display: block;">
+        <circle cx="7" cy="7" r="6" fill="#C8956C"></circle>
+        <path d="M 1.6 5 L 12.4 5" stroke="#131628" stroke-width="1.1" opacity="0.6"></path>
+        <path d="M 1 8.1 L 13 8.1" stroke="#131628" stroke-width="1.5" opacity="0.6"></path>
+        <path d="M 2.4 10.6 L 11.6 10.6" stroke="#131628" stroke-width="0.9" opacity="0.5"></path>
+      </svg>
+      Jupiter
+    </button>
+    <nav style="display: flex; align-items: baseline; gap: 26px;">
+      <button onClick="{{ goTonight }}" style="background: none; border: none; padding: 0; cursor: pointer; font-family: 'Public Sans', system-ui, sans-serif; font-size: 13px; font-weight: 400; letter-spacing: 0.08em; color: {{ navTonight }};" style-hover="color: #EAE4D6;">tonight</button>
+      <button onClick="{{ goPages }}" style="background: none; border: none; padding: 0; cursor: pointer; font-family: 'Public Sans', system-ui, sans-serif; font-size: 13px; font-weight: 400; letter-spacing: 0.08em; color: {{ navPages }};" style-hover="color: #EAE4D6;">your pages</button>
+      <button onClick="{{ goWrite }}" style="background: none; border: none; padding: 0; cursor: pointer; font-family: 'Public Sans', system-ui, sans-serif; font-size: 13px; font-weight: 400; letter-spacing: 0.08em; color: {{ navWrite }};" style-hover="color: #EAE4D6;">write</button>
+    </nav>
+  </header>
+
+  <!-- ============ TONIGHT ============ -->
+  <sc-if value="{{ isTonight }}" hint-placeholder-val="{{ true }}">
+    <main data-screen-label="Tonight's sky" style="position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 92px 28px 40px 28px; box-sizing: border-box; animation: jfade 0.9s ease both;">
+      <p style="margin: 0; font-size: 11px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(234,228,214,0.42);">{{ todayLine }}</p>
+      <h1 style="margin: 16px 0 0 0; font-family: 'Literata', Georgia, serif; font-weight: 300; font-size: 36px; letter-spacing: 0.01em; color: #EAE4D6;">Tonight&rsquo;s sky</h1>
+      <p style="margin: 14px 0 0 0; max-width: 52ch; font-family: 'Literata', Georgia, serif; font-style: italic; font-weight: 300; font-size: 17px; line-height: 1.65; color: rgba(234,228,214,0.55); text-wrap: pretty;">{{ skyIntro }}</p>
+      <p style="margin: 18px 0 0 0; font-family: 'Literata', Georgia, serif; font-style: italic; font-weight: 300; font-size: 14.5px; color: rgba(200,149,108,0.75);">a few others are awake here with you just now</p>
+
+      <div style="display: flex; flex-direction: column; gap: 76px; margin-top: 84px;">
+        <sc-for list="{{ skyEntries }}" as="item" hint-placeholder-count="4">
+          <article style="position: relative; display: flex; flex-direction: column; gap: 14px;">
+            {{ item.sigil }}
+            <div style="display: flex; align-items: center; gap: 10px;">
+              {{ item.glyph }}
+              <span style="font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(234,228,214,0.40);">{{ item.meta }}</span>
+            </div>
+            <div style="width: 76px; height: 2px; border-radius: 2px; background: linear-gradient(to right, {{ item.ruleColor }}, transparent); opacity: 0.9;"></div>
+            <p onClick="{{ item.open }}" style="cursor: pointer; position: relative; margin: 0; font-family: 'Literata', Georgia, serif; font-size: 20px; font-weight: 400; line-height: 1.8; color: #E8E2D3; text-wrap: pretty; transition: color 0.4s ease;" style-hover="color: #F8F3E6;">{{ item.body }}</p>
+            <sc-if value="{{ item.sparkLabel }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ item.openSpark }}" style="align-self: flex-start; background: none; border: none; padding: 0; cursor: pointer; font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 14.5px; line-height: 1.5; color: rgba(200,149,108,0.85); text-align: left; transition: color 0.4s ease;" style-hover="color: #DFAE80;">{{ item.sparkLabel }}</button>
+            </sc-if>
+            <sc-if value="{{ item.resonance }}" hint-placeholder-val="{{ false }}">
+              <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 14.5px; line-height: 1.5; color: rgba(234,228,214,0.42);">{{ item.resonance }}</p>
+            </sc-if>
+          </article>
+        </sc-for>
+      </div>
+
+      <div style="margin-top: 120px; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center;">
+        <svg width="52" height="8" viewBox="0 0 52 8" style="display: block;">
+          <circle cx="6" cy="4" r="1.4" fill="rgba(234,228,214,0.30)"></circle>
+          <circle cx="26" cy="4" r="1.4" fill="rgba(200,149,108,0.55)"></circle>
+          <circle cx="46" cy="4" r="1.4" fill="rgba(234,228,214,0.30)"></circle>
+        </svg>
+        <p style="margin: 0; max-width: 42ch; font-family: 'Literata', Georgia, serif; font-style: italic; font-weight: 300; font-size: 17px; line-height: 1.7; color: rgba(234,228,214,0.55);">That is the whole sky for tonight. Somewhere, someone is already writing tomorrow&rsquo;s.</p>
+        <button onClick="{{ goWrite }}" style="margin-top: 6px; background: none; border: 1px solid rgba(200,149,108,0.45); border-radius: 2px; padding: 11px 24px; cursor: pointer; font-family: 'Public Sans', system-ui, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #C8956C; transition: border-color 0.4s ease, color 0.4s ease;" style-hover="border-color: rgba(200,149,108,0.9); color: #DFAE80;">Add your light to it</button>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ============ ENTRY / THREAD ============ -->
+  <sc-if value="{{ isEntry }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Entry thread" style="position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 72px 28px 40px 28px; box-sizing: border-box; animation: jfade 0.9s ease both;">
+      <button onClick="{{ goBack }}" style="background: none; border: none; padding: 0; cursor: pointer; font-size: 13px; letter-spacing: 0.08em; color: rgba(234,228,214,0.45); transition: color 0.4s ease;" style-hover="color: #EAE4D6;">{{ returnLabel }}</button>
+
+      <sc-if value="{{ hasAncestors }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top: 64px; border-left: 1px solid rgba(234,228,214,0.14); padding-left: 28px; display: flex; flex-direction: column; gap: 34px;">
+          <p style="margin: 0; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(234,228,214,0.38);">Earlier in this thread</p>
+          <sc-for list="{{ ancestors }}" as="a" hint-placeholder-count="1">
+            <div onClick="{{ a.open }}" style="cursor: pointer; display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(234,228,214,0.35);">{{ a.meta }}</span>
+              <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-size: 16px; font-weight: 300; line-height: 1.75; color: rgba(234,228,214,0.62); text-wrap: pretty; transition: color 0.4s ease;" style-hover="color: rgba(234,228,214,0.85);">{{ a.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <article style="position: relative; margin-top: 64px; display: flex; flex-direction: column; gap: 18px;">
+        {{ focalSigil }}
+        <div style="display: flex; align-items: center; gap: 10px;">
+          {{ focalGlyph }}
+          <span style="font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(234,228,214,0.40);">{{ focalMeta }}</span>
+        </div>
+        <div style="width: 76px; height: 2px; border-radius: 2px; background: linear-gradient(to right, {{ focalRule }}, transparent); opacity: 0.9;"></div>
+        <p style="position: relative; margin: 0; font-family: 'Literata', Georgia, serif; font-size: 24px; font-weight: 400; line-height: 1.8; color: #F0EADB; text-wrap: pretty;">{{ focalBody }}</p>
+        <sc-if value="{{ focalResonance }}" hint-placeholder-val="{{ false }}">
+          <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 15px; line-height: 1.5; color: rgba(234,228,214,0.42);">{{ focalResonance }}</p>
+        </sc-if>
+      </article>
+
+      <sc-if value="{{ hasChildren }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top: 72px; display: flex; flex-direction: column; gap: 34px;">
+          <p style="margin: 0; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(234,228,214,0.38);">What it sparked</p>
+          <sc-for list="{{ sparkChildren }}" as="c" hint-placeholder-count="1">
+            <div onClick="{{ c.open }}" style="cursor: pointer; border-left: 1px solid rgba(200,149,108,0.35); padding-left: 28px; display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(234,228,214,0.35);">{{ c.meta }}</span>
+              <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-size: 16px; font-weight: 300; line-height: 1.75; color: rgba(234,228,214,0.68); text-wrap: pretty; transition: color 0.4s ease;" style-hover="color: rgba(234,228,214,0.9);">{{ c.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <div style="margin-top: 88px; display: flex; justify-content: center;">
+        <button onClick="{{ sparkWrite }}" style="background: none; border: 1px solid rgba(200,149,108,0.45); border-radius: 2px; padding: 11px 24px; cursor: pointer; font-family: 'Public Sans', system-ui, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #C8956C; transition: border-color 0.4s ease, color 0.4s ease;" style-hover="border-color: rgba(200,149,108,0.9); color: #DFAE80;">Write what this sparks in you</button>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ============ WRITE ============ -->
+  <sc-if value="{{ isWrite }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="A new page" style="position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 92px 28px 40px 28px; box-sizing: border-box; animation: jfade 0.9s ease both;">
+
+      <sc-if value="{{ showComposer }}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-direction: column;">
+          <p style="margin: 0; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(234,228,214,0.42);">{{ writeDateLine }}</p>
+          <h1 style="margin: 16px 0 0 0; font-family: 'Literata', Georgia, serif; font-weight: 300; font-size: 30px; color: #EAE4D6;">A new page</h1>
+
+          <sc-if value="{{ inspirerLabel }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top: 40px; border-left: 2px solid rgba(200,149,108,0.5); padding: 4px 0 4px 22px; display: flex; flex-direction: column; gap: 9px; align-items: flex-start;">
+              <p style="margin: 0; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(200,149,108,0.75);">Sparked by</p>
+              <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 16px; line-height: 1.7; color: rgba(234,228,214,0.62); text-wrap: pretty;">{{ inspirerLabel }}</p>
+              <button onClick="{{ clearInspirer }}" style="background: none; border: none; padding: 0; cursor: pointer; font-size: 12px; letter-spacing: 0.08em; color: rgba(234,228,214,0.40); transition: color 0.4s ease;" style-hover="color: rgba(234,228,214,0.7);">write without it</button>
+            </div>
+          </sc-if>
+
+          <textarea value="{{ draft }}" onChange="{{ onDraft }}" maxLength="480" rows="7" placeholder="{{ prompt }}" style="margin-top: 48px; width: 100%; box-sizing: border-box; background: none; border: none; border-bottom: 1px solid rgba(234,228,214,0.14); padding: 0 0 24px 0; resize: none; font-family: 'Literata', Georgia, serif; font-size: 21px; font-weight: 400; line-height: 1.8; color: #EAE4D6; caret-color: #C8956C;"></textarea>
+          <p style="margin: 10px 0 0 0; align-self: flex-end; height: 16px; font-size: 11.5px; letter-spacing: 0.1em; color: rgba(234,228,214,0.35);">{{ counterText }}</p>
+
+          <p style="margin: 34px 0 0 0; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(234,228,214,0.38);">A small sign, if it wants one &mdash; optional</p>
+          <div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 12px;">
+            <sc-for list="{{ sigilOptions }}" as="g" hint-placeholder-count="8">
+              <button onClick="{{ g.pick }}" title="{{ g.name }}" style="width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; background: none; border: 1px solid {{ g.border }}; border-radius: 3px; padding: 0; cursor: pointer; transition: border-color 0.4s ease;" style-hover="border-color: rgba(200,149,108,0.6);">{{ g.el }}</button>
+            </sc-for>
+          </div>
+
+          <div style="margin-top: 38px; display: flex; flex-direction: column; gap: 16px;">
+            <button onClick="{{ setPrivate }}" style="display: flex; align-items: center; gap: 13px; background: none; border: none; padding: 0; cursor: pointer; text-align: left;">
+              <span style="width: 8px; height: 8px; border-radius: 50%; flex: none; border: 1px solid rgba(200,149,108,0.8); background: {{ privateDot }}; transition: background 0.4s ease;"></span>
+              <span style="font-size: 14px; line-height: 1.5; color: {{ privateColor }}; transition: color 0.4s ease;">Keep it in your pages <span style="color: rgba(234,228,214,0.38);">&mdash; private, only for you</span></span>
+            </button>
+            <button onClick="{{ setPublic }}" style="display: flex; align-items: center; gap: 13px; background: none; border: none; padding: 0; cursor: pointer; text-align: left;">
+              <span style="width: 8px; height: 8px; border-radius: 50%; flex: none; border: 1px solid rgba(200,149,108,0.8); background: {{ publicDot }}; transition: background 0.4s ease;"></span>
+              <span style="font-size: 14px; line-height: 1.5; color: {{ publicColor }}; transition: color 0.4s ease;">Place it in the sky <span style="color: rgba(234,228,214,0.38);">&mdash; public, unsigned</span></span>
+            </button>
+          </div>
+
+          <div style="margin-top: 52px; display: flex; align-items: center; gap: 22px;">
+            <button onClick="{{ save }}" style="background: none; border: 1px solid rgba(200,149,108,0.55); border-radius: 2px; padding: 12px 26px; cursor: pointer; font-family: 'Public Sans', system-ui, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #C8956C; opacity: {{ saveOpacity }}; transition: opacity 0.4s ease, border-color 0.4s ease, color 0.4s ease;" style-hover="border-color: rgba(200,149,108,0.9); color: #DFAE80;">{{ saveLabel }}</button>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ justSaved }}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 80px;">
+          {{ savedGlyph }}
+          <h2 style="margin: 28px 0 0 0; font-family: 'Literata', Georgia, serif; font-weight: 300; font-size: 28px; color: #EAE4D6;">{{ savedHeadline }}</h2>
+          <p style="margin: 16px 0 0 0; max-width: 42ch; font-family: 'Literata', Georgia, serif; font-style: italic; font-weight: 300; font-size: 16.5px; line-height: 1.7; color: rgba(234,228,214,0.55); text-wrap: pretty;">{{ savedSub }}</p>
+          <div style="margin-top: 48px; display: flex; align-items: baseline; gap: 30px;">
+            <button onClick="{{ goPages }}" style="background: none; border: none; padding: 0; cursor: pointer; font-size: 13px; letter-spacing: 0.08em; color: rgba(200,149,108,0.85); transition: color 0.4s ease;" style-hover="color: #DFAE80;">your pages</button>
+            <button onClick="{{ goTonight }}" style="background: none; border: none; padding: 0; cursor: pointer; font-size: 13px; letter-spacing: 0.08em; color: rgba(234,228,214,0.45); transition: color 0.4s ease;" style-hover="color: #EAE4D6;">tonight&rsquo;s sky</button>
+            <button onClick="{{ writeAnother }}" style="background: none; border: none; padding: 0; cursor: pointer; font-size: 13px; letter-spacing: 0.08em; color: rgba(234,228,214,0.45); transition: color 0.4s ease;" style-hover="color: #EAE4D6;">write another</button>
+          </div>
+        </div>
+      </sc-if>
+    </main>
+  </sc-if>
+
+  <!-- ============ YOUR PAGES ============ -->
+  <sc-if value="{{ isPages }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Your pages" style="position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 92px 28px 40px 28px; box-sizing: border-box; animation: jfade 0.9s ease both;">
+      <p style="margin: 0; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(234,228,214,0.42);">A private record</p>
+      <h1 style="margin: 16px 0 0 0; font-family: 'Literata', Georgia, serif; font-weight: 300; font-size: 36px; color: #EAE4D6;">Your pages</h1>
+      <p style="margin: 14px 0 0 0; max-width: 52ch; font-family: 'Literata', Georgia, serif; font-style: italic; font-weight: 300; font-size: 17px; line-height: 1.65; color: rgba(234,228,214,0.55); text-wrap: pretty;">Yours alone, unless you placed them in the sky. No one is counting anything here.</p>
+
+      <div style="display: flex; flex-direction: column; gap: 64px; margin-top: 80px;">
+        <sc-for list="{{ pageEntries }}" as="item" hint-placeholder-count="2">
+          <article style="position: relative; display: flex; flex-direction: column; gap: 13px;">
+            {{ item.sigil }}
+            <div style="display: flex; align-items: center; gap: 10px;">
+              {{ item.glyph }}
+              <span style="font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(234,228,214,0.40);">{{ item.meta }}</span>
+              <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: {{ item.markColor }};">{{ item.mark }}</span>
+            </div>
+            <div style="width: 76px; height: 2px; border-radius: 2px; background: linear-gradient(to right, {{ item.ruleColor }}, transparent); opacity: 0.9;"></div>
+            <p onClick="{{ item.open }}" style="cursor: pointer; position: relative; margin: 0; font-family: 'Literata', Georgia, serif; font-size: 19px; font-weight: 400; line-height: 1.8; color: #E8E2D3; text-wrap: pretty; transition: color 0.4s ease;" style-hover="color: #F8F3E6;">{{ item.body }}</p>
+            <sc-if value="{{ item.sparkLabel }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ item.openSpark }}" style="align-self: flex-start; background: none; border: none; padding: 0; cursor: pointer; font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 14px; line-height: 1.5; color: rgba(200,149,108,0.85); text-align: left; transition: color 0.4s ease;" style-hover="color: #DFAE80;">{{ item.sparkLabel }}</button>
+            </sc-if>
+            <sc-if value="{{ item.resonance }}" hint-placeholder-val="{{ false }}">
+              <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-style: italic; font-size: 14px; line-height: 1.5; color: rgba(234,228,214,0.42);">{{ item.resonance }}</p>
+            </sc-if>
+          </article>
+        </sc-for>
+      </div>
+
+      <div style="margin-top: 96px; display: flex; justify-content: center;">
+        <button onClick="{{ goWrite }}" style="background: none; border: 1px solid rgba(200,149,108,0.45); border-radius: 2px; padding: 11px 24px; cursor: pointer; font-family: 'Public Sans', system-ui, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #C8956C; transition: border-color 0.4s ease, color 0.4s ease;" style-hover="border-color: rgba(200,149,108,0.9); color: #DFAE80;">Begin a new page</button>
+      </div>
+    </main>
+  </sc-if>
+
+  <footer style="position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 60px 28px 56px 28px; text-align: center;">
+    <p style="margin: 0; font-family: 'Literata', Georgia, serif; font-style: italic; font-weight: 300; font-size: 13px; color: rgba(234,228,214,0.32);">Jupiter &mdash; a quiet place to keep what makes life worth living, together with strangers.</p>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    view: 'tonight', // tonight | entry | write | pages
+    focusId: null,
+    returnView: 'tonight',
+    draft: '',
+    draftPublic: false,
+    draftSigil: null,
+    inspirerId: null,
+    justSaved: null, // null | 'private' | 'public'
+    userEntries: [],
+  };
+
+  starRef = React.createRef();
+  galRef = React.createRef();
+
+  SIGILS = {
+    moon:   { name: 'the moon', color: '#A9B8D8', parts: [
+      { t: 'path', d: 'M 30 8 A 16 16 0 1 0 30 40 A 12.5 12.5 0 1 1 30 8 Z' },
+      { t: 'path', d: 'M 35 13 L 35 19 M 32 16 L 38 16' } ] },
+    citrus: { name: 'citrus', color: '#D9A05B', parts: [
+      { t: 'circle', cx: 24, cy: 24, r: 15 },
+      { t: 'circle', cx: 24, cy: 24, r: 11 },
+      { t: 'path', d: 'M 24 13 L 24 35 M 13 24 L 35 24 M 16.2 16.2 L 31.8 31.8 M 31.8 16.2 L 16.2 31.8' } ] },
+    note:   { name: 'music', color: '#C492B1', parts: [
+      { t: 'ellipse', cx: 20, cy: 34, rx: 4.6, ry: 3.6, transform: 'rotate(-15 20 34)' },
+      { t: 'path', d: 'M 24.4 32.8 L 24.4 10' },
+      { t: 'path', d: 'M 24.4 10 C 31 12 33 17 30.5 23' } ] },
+    cup:    { name: 'a warm cup', color: '#C8956C', parts: [
+      { t: 'path', d: 'M 13 21 L 15.5 39 L 30.5 39 L 33 21 Z' },
+      { t: 'path', d: 'M 33 24 C 39 24 39 32 32 32' },
+      { t: 'path', d: 'M 19 9 C 17.5 11.5 20.5 13 19 15.5' },
+      { t: 'path', d: 'M 26 7 C 24.5 9.5 27.5 11 26 13.5' } ] },
+    book:   { name: 'a book', color: '#9DB89A', parts: [
+      { t: 'path', d: 'M 24 13 C 19.5 10 13 10 9 12 L 9 36 C 13 34 19.5 34 24 37 C 28.5 34 35 34 39 36 L 39 12 C 35 10 28.5 10 24 13 Z' },
+      { t: 'path', d: 'M 24 13 L 24 37' } ] },
+    candle: { name: 'a candle', color: '#D6B25E', parts: [
+      { t: 'path', d: 'M 18.5 23 L 18.5 39 Q 18.5 40 19.5 40 L 28.5 40 Q 29.5 40 29.5 39 L 29.5 23 Z' },
+      { t: 'path', d: 'M 24 19 L 24 23' },
+      { t: 'path', d: 'M 24 7.5 C 21.2 11 21.4 14.6 24 16.5 C 26.6 14.6 26.8 11 24 7.5 Z' } ] },
+    leaf:   { name: 'something growing', color: '#9DB89A', parts: [
+      { t: 'path', d: 'M 24 40 C 11 31 12.5 14 24 8 C 35.5 14 37 31 24 40 Z' },
+      { t: 'path', d: 'M 24 12 L 24 38' },
+      { t: 'path', d: 'M 24 20 C 20 19 17.5 16.5 17 14 M 24 27 C 19 26 16 23 15.2 20 M 24 20 C 28 19 30.5 16.5 31 14 M 24 27 C 29 26 32 23 32.8 20' } ] },
+    wave:   { name: 'water', color: '#8FB0BD', parts: [
+      { t: 'path', d: 'M 8 19 C 13 14.5 19 14.5 24 19 C 29 23.5 35 23.5 40 19' },
+      { t: 'path', d: 'M 8 27 C 13 22.5 19 22.5 24 27 C 29 31.5 35 31.5 40 27' },
+      { t: 'path', d: 'M 8 35 C 13 30.5 19 30.5 24 35 C 29 39.5 35 39.5 40 35' } ] },
+    paw:    { name: 'an animal', color: '#C9A18A', parts: [
+      { t: 'ellipse', cx: 24, cy: 31, rx: 7.5, ry: 6 },
+      { t: 'ellipse', cx: 13.5, cy: 22, rx: 3.2, ry: 4.2, transform: 'rotate(-18 13.5 22)' },
+      { t: 'ellipse', cx: 20.5, cy: 15.5, rx: 3.2, ry: 4.4 },
+      { t: 'ellipse', cx: 28.5, cy: 15.5, rx: 3.2, ry: 4.4 },
+      { t: 'ellipse', cx: 35, cy: 22, rx: 3.2, ry: 4.2, transform: 'rotate(18 35 22)' } ] },
+    window: { name: 'home', color: '#B0A4CC', parts: [
+      { t: 'rect', x: 13, y: 10, width: 22, height: 28, rx: 1.5 },
+      { t: 'path', d: 'M 24 10 L 24 38 M 13 24 L 35 24' } ] },
+  };
+
+  SEED = [
+    { id: 's3', author: 'stranger', public: true, date: '2026-06-10', phase: 0.32, order: 1, sigil: 'moon',
+      body: 'My daughter asked me whether the moon follows only her. I said yes. I did not feel that I was lying.',
+      inspirerId: null, resonance: 'a few others wrote of the moon tonight' },
+    { id: 's4', author: 'stranger', public: true, date: '2026-06-11', phase: 0.36, order: 2, sigil: 'moon',
+      body: 'The moon followed me home tonight too. Forty-one years old, walking from the bus stop, and I checked twice.',
+      inspirerId: 's3', resonance: null },
+    { id: 's5', author: 'stranger', public: true, date: '2026-06-10', phase: 0.32, order: 3, sigil: 'note',
+      body: 'The slow movement of the Jupiter symphony, alone in the car with the engine off, groceries going warm in the back. Worth it.',
+      inspirerId: null, resonance: 'someone else sat in a parked car with Mozart this month' },
+    { id: 's1', author: 'stranger', public: true, date: '2026-06-09', phase: 0.28, order: 4, sigil: 'citrus',
+      body: 'Tonight the kitchen smelled of oranges long after the peel was in the bin. I sat in the dark a while longer than I needed to, just to stay inside it.',
+      inspirerId: null, resonance: 'a few strangers wrote of citrus this week' },
+    { id: 's2', author: 'stranger', public: true, date: '2026-06-10', phase: 0.32, order: 5, sigil: 'cup',
+      body: 'Someone here wrote about oranges. For me it is coffee left too long on the stove — the bitterness of it means morning, means my father, means being eleven and not allowed any.',
+      inspirerId: 's1', resonance: null },
+    { id: 's7', author: 'stranger', public: true, date: '2026-06-11', phase: 0.36, order: 6, sigil: 'book',
+      body: 'Reading the entries about smells. Mine is library paste. Whole grade-school hallways arrive uninvited, and I am eight again, gluing autumn leaves to paper.',
+      inspirerId: 's2', resonance: null },
+    { id: 's6', author: 'stranger', public: true, date: '2026-06-08', phase: 0.24, order: 7, sigil: 'wave',
+      body: 'An old man at the pool swims one slow lap every morning, then sits in the steam room like a king. I want to want that little, that completely.',
+      inspirerId: null, resonance: null },
+    { id: 's8', author: 'stranger', public: true, date: '2026-06-09', phase: 0.28, order: 8, sigil: 'paw',
+      body: 'The dog turned three times before lying down, exactly as her ancestors did on grasses none of us have ever seen.',
+      inspirerId: null, resonance: null },
+    { id: 'y1', author: 'you', public: false, date: '2026-06-08', phase: 0.24, order: 100, sigil: 'window',
+      body: 'The radiator clanks like someone knocking politely from inside the wall. I have stopped minding. It is the house clearing its throat.',
+      inspirerId: null, resonance: null },
+    { id: 'y2', author: 'you', public: true, date: '2026-06-09', phase: 0.28, order: 9, sigil: 'candle',
+      body: 'Lit the good candle on an ordinary Tuesday. No occasion. That was the occasion.',
+      inspirerId: null, resonance: 'a few strangers also refused to wait for an occasion' },
+  ];
+
+  PROMPTS = [
+    'Something small that made today worth it —',
+    'A thing you would put on the list —',
+    'What did you notice today that no one else did?',
+    'Begin anywhere. The sky is patient.',
+  ];
+
+  PALETTE = ['#C8956C', '#C492B1', '#9DB89A', '#A9B8D8', '#D6B25E'];
+  MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  WORDS = ['no','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen'];
+
+  componentDidMount() {
+    try {
+      const saved = JSON.parse(localStorage.getItem('jupiter.entries.v1') || '[]');
+      const draft = localStorage.getItem('jupiter.draft.v1') || '';
+      this.setState({ userEntries: Array.isArray(saved) ? saved : [], draft });
+    } catch (e) { /* fresh start */ }
+    this._y = window.scrollY || 0;
+    this._onScroll = () => {
+      this._y = window.scrollY || 0;
+      if (this.starRef.current) this.starRef.current.style.transform = 'translateY(' + (-this._y * 0.06).toFixed(1) + 'px)';
+      if (this.galRef.current) this.galRef.current.style.transform = 'translateY(' + (-this._y * 0.13).toFixed(1) + 'px)';
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+
+  componentWillUnmount() {
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+  }
+
+  // ---------- sky scenery ----------
+
+  stars() {
+    if (this._stars) return this._stars;
+    let seed = 7;
+    const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+    const kids = [];
+    for (let i = 0; i < 120; i++) {
+      const r = rnd();
+      const sz = r < 0.7 ? 1 : (r < 0.93 ? 1.6 : 2.4);
+      const warm = rnd() < 0.3;
+      kids.push(React.createElement('span', { key: 'st' + i, style: {
+        position: 'absolute', left: (rnd() * 100).toFixed(2) + '%', top: (rnd() * 100).toFixed(2) + '%',
+        width: sz, height: sz, borderRadius: '50%',
+        background: warm ? 'rgba(216,182,140,0.9)' : 'rgba(228,224,238,0.85)',
+        animation: 'jtwinkle ' + (6 + rnd() * 10).toFixed(1) + 's ease-in-out ' + (rnd() * 10).toFixed(1) + 's infinite',
+      } }));
+    }
+    this._stars = kids;
+    return kids;
+  }
+
+  galaxies() {
+    if (this._gal) return this._gal;
+    const blob = (key, x, y, w, h, rot, color, blur) => React.createElement('div', { key, style: {
+      position: 'absolute', left: x + '%', top: y + '%', width: w, height: h, borderRadius: '50%',
+      background: 'radial-gradient(ellipse at center, ' + color + ', transparent 70%)',
+      transform: 'rotate(' + rot + 'deg)', filter: 'blur(' + blur + 'px)',
+    } });
+    const spiral = React.createElement('svg', { key: 'spiral', width: 90, height: 90, viewBox: '0 0 90 90', style: {
+      position: 'absolute', left: '83%', top: '74%', opacity: 0.5, transform: 'rotate(-20deg)' } },
+      React.createElement('circle', { cx: 45, cy: 45, r: 2.5, fill: 'none', stroke: 'rgba(228,224,238,0.6)', strokeWidth: 1 }),
+      React.createElement('path', { d: 'M 45 45 C 53 37 64 40 66 51 C 68 64 55 72 44 68', fill: 'none', stroke: 'rgba(228,224,238,0.55)', strokeWidth: 1.4, strokeLinecap: 'round', strokeDasharray: '0.5 5.5' }),
+      React.createElement('path', { d: 'M 45 45 C 37 53 26 50 24 39 C 22 26 35 18 46 22', fill: 'none', stroke: 'rgba(216,182,140,0.5)', strokeWidth: 1.4, strokeLinecap: 'round', strokeDasharray: '0.5 5.5' }));
+    this._gal = [
+      blob('n1', 58, 4, 480, 200, -18, 'rgba(200,149,108,0.15)', 26),
+      blob('n2', -10, 26, 520, 230, 14, 'rgba(148,128,188,0.14)', 30),
+      blob('n3', 52, 52, 440, 190, -10, 'rgba(122,152,186,0.12)', 26),
+      blob('n4', 6, 76, 470, 200, 8, 'rgba(200,149,108,0.10)', 30),
+      blob('g1', 76, 34, 32, 9, -24, 'rgba(236,231,221,0.6)', 1.5),
+      blob('g2', 16, 10, 26, 8, 30, 'rgba(236,231,221,0.55)', 1.5),
+      blob('g3', 38, 66, 36, 10, -12, 'rgba(216,182,140,0.55)', 1.5),
+      blob('g4', 88, 16, 24, 7, 18, 'rgba(228,224,238,0.5)', 1.5),
+      spiral,
+    ];
+    return this._gal;
+  }
+
+  bgLayer() {
+    const ty = (f) => 'translateY(' + (-(this._y || 0) * f).toFixed(1) + 'px)';
+    return React.createElement('div', { style: { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0 } },
+      React.createElement('div', { key: 'g', ref: this.galRef, style: { position: 'absolute', left: 0, right: 0, top: 0, height: '175vh', willChange: 'transform', transform: ty(0.13) } }, this.galaxies()),
+      React.createElement('div', { key: 's', ref: this.starRef, style: { position: 'absolute', left: 0, right: 0, top: 0, height: '145vh', willChange: 'transform', transform: ty(0.06) } }, this.stars()),
+      React.createElement('div', { key: 'h', style: { position: 'absolute', left: 0, right: 0, bottom: 0, height: '38vh', background: 'linear-gradient(to top, rgba(200,149,108,0.11), rgba(150,120,150,0.05) 45%, transparent)' } }));
+  }
+
+  // ---------- glyphs ----------
+
+  moon(phase, size) {
+    const s = size || 13;
+    const c = s / 2, r = s / 2 - 1.2;
+    const k = Math.cos(2 * Math.PI * phase);
+    const d = 'M ' + c + ' ' + (c - r) +
+      ' A ' + r + ' ' + r + ' 0 1 1 ' + c + ' ' + (c + r) +
+      ' A ' + (Math.abs(k) * r).toFixed(2) + ' ' + r + ' 0 1 ' + (k > 0 ? 0 : 1) + ' ' + c + ' ' + (c - r) + ' Z';
+    return React.createElement('svg', { width: s, height: s, viewBox: '0 0 ' + s + ' ' + s, style: { display: 'block', flex: 'none' } },
+      React.createElement('circle', { cx: c, cy: c, r: r, fill: 'none', stroke: 'rgba(234,228,214,0.28)', strokeWidth: 1 }),
+      React.createElement('path', { d: d, fill: 'rgba(234,228,214,0.50)' }));
+  }
+
+  sigilSvg(key, size, color) {
+    const def = this.SIGILS[key];
+    if (!def) return null;
+    const kids = def.parts.map((p, i) => {
+      const attrs = Object.assign({}, p, { key: 'p' + i, fill: 'none', stroke: color || 'currentColor', strokeWidth: 1.5, strokeLinecap: 'round', strokeLinejoin: 'round' });
+      const tag = attrs.t; delete attrs.t;
+      return React.createElement(tag, attrs);
+    });
+    return React.createElement('svg', { width: size, height: size, viewBox: '0 0 48 48', style: { display: 'block' } }, kids);
+  }
+
+  sigilDecoration(key, size, opacity) {
+    const def = this.SIGILS[key];
+    if (!def) return null;
+    const fade = 'linear-gradient(to bottom, black 10%, transparent 88%)';
+    return React.createElement('div', { style: {
+      position: 'absolute', top: -28, right: -8, width: size, height: size,
+      opacity: opacity, color: def.color, pointerEvents: 'none',
+      WebkitMaskImage: fade, maskImage: fade,
+    } }, this.sigilSvg(key, size));
+  }
+
+  // ---------- data ----------
+
+  all() {
+    return this.SEED.concat(this.state.userEntries);
+  }
+
+  byId(id) {
+    return this.all().find((e) => e.id === id) || null;
+  }
+
+  excerpt(text, n) {
+    const max = n || 52;
+    if (text.length <= max) return text;
+    const cut = text.slice(0, max);
+    const sp = cut.lastIndexOf(' ');
+    return cut.slice(0, sp > 20 ? sp : max).replace(/[,.;:—\s]+$/, '') + ' …';
+  }
+
+  fmt(iso) {
+    const d = new Date(iso + (iso.length === 10 ? 'T12:00:00' : ''));
+    return this.MONTHS[d.getMonth()] + ' ' + d.getDate();
+  }
+
+  openEntry(id) {
+    const rv = this.state.view === 'entry' ? this.state.returnView : (this.state.view === 'pages' ? 'pages' : 'tonight');
+    this.setState({ view: 'entry', focusId: id, returnView: rv });
+    window.scrollTo(0, 0);
+  }
+
+  ruleFor(e) {
+    if (e.sigil && this.SIGILS[e.sigil]) return this.SIGILS[e.sigil].color;
+    let h = 0;
+    for (let i = 0; i < e.id.length; i++) h = (h * 31 + e.id.charCodeAt(i)) % 9973;
+    return this.PALETTE[h % this.PALETTE.length];
+  }
+
+  decorate(e) {
+    const insp = e.inspirerId ? this.byId(e.inspirerId) : null;
+    const isToday = e.date.slice(0, 10) === new Date().toISOString().slice(0, 10);
+    const who = e.author === 'you' ? 'you' : 'a stranger';
+    return {
+      id: e.id,
+      body: e.body,
+      meta: who + ' · ' + (isToday && e.author === 'you' ? 'tonight' : this.fmt(e.date)),
+      glyph: this.moon(e.phase != null ? e.phase : 0.36),
+      ruleColor: this.ruleFor(e),
+      sigil: e.sigil ? this.sigilDecoration(e.sigil, 118, 0.13) : null,
+      sparkLabel: insp ? 'sparked by — “' + this.excerpt(insp.body) + '”' : null,
+      openSpark: insp ? (() => this.openEntry(insp.id)) : null,
+      resonance: e.resonance ? '— ' + e.resonance : null,
+      open: () => this.openEntry(e.id),
+      mark: e.public ? 'placed in the sky' : '',
+      markColor: 'rgba(200,149,108,0.65)',
+    };
+  }
+
+  save() {
+    const text = this.state.draft.trim();
+    if (!text) return;
+    const now = new Date();
+    const entry = {
+      id: 'u' + now.getTime(),
+      author: 'you',
+      public: this.state.draftPublic,
+      date: now.toISOString(),
+      phase: 0.36,
+      sigil: this.state.draftSigil,
+      body: text.slice(0, 480),
+      inspirerId: this.state.inspirerId,
+      resonance: null,
+    };
+    const userEntries = this.state.userEntries.concat([entry]);
+    try {
+      localStorage.setItem('jupiter.entries.v1', JSON.stringify(userEntries));
+      localStorage.removeItem('jupiter.draft.v1');
+    } catch (e) { /* ignore */ }
+    this.setState({
+      userEntries,
+      draft: '',
+      draftSigil: null,
+      inspirerId: null,
+      justSaved: entry.public ? 'public' : 'private',
+    });
+    window.scrollTo(0, 0);
+  }
+
+  renderVals() {
+    const st = this.state;
+    const now = new Date();
+
+    // ---- sky list: your public entries first, then strangers in fixed order
+    const pub = this.all().filter((e) => e.public);
+    const yoursPub = pub.filter((e) => e.author === 'you')
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
+    const strangers = pub.filter((e) => e.author !== 'you')
+      .sort((a, b) => (a.order || 999) - (b.order || 999));
+    const sky = yoursPub.concat(strangers);
+
+    const n = sky.length;
+    const word = n < this.WORDS.length ? this.WORDS[n] : String(n);
+    const hasYours = yoursPub.length > 0;
+    const skyIntro = (word.charAt(0).toUpperCase() + word.slice(1)) +
+      ' short reflections from people awake under the same sky' +
+      (hasYours ? ', yours among them.' : '.') +
+      ' Read slowly — there is no hurry here.';
+
+    // ---- focal entry + thread
+    const focal = st.focusId ? this.byId(st.focusId) : null;
+    const ancestors = [];
+    if (focal) {
+      let cur = focal, guard = 0;
+      while (cur && cur.inspirerId && guard < 12) {
+        cur = this.byId(cur.inspirerId);
+        if (cur) ancestors.unshift(this.decorate(cur));
+        guard++;
+      }
+    }
+    const children = focal
+      ? this.all().filter((e) => e.inspirerId === focal.id).map((e) => this.decorate(e))
+      : [];
+    const focalDec = focal ? this.decorate(focal) : null;
+
+    // ---- your pages
+    const pages = this.all().filter((e) => e.author === 'you')
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .map((e) => this.decorate(e));
+
+    // ---- composer
+    const remaining = 480 - st.draft.length;
+    const inspirer = st.inspirerId ? this.byId(st.inspirerId) : null;
+    const canSave = st.draft.trim().length > 0;
+    const sigilOptions = Object.keys(this.SIGILS).map((k) => {
+      const sel = st.draftSigil === k;
+      return {
+        key: k,
+        name: this.SIGILS[k].name,
+        el: this.sigilSvg(k, 26, sel ? this.SIGILS[k].color : 'rgba(234,228,214,0.45)'),
+        border: sel ? this.SIGILS[k].color : 'rgba(234,228,214,0.16)',
+        pick: () => this.setState({ draftSigil: sel ? null : k }),
+      };
+    });
+
+    return {
+      bgLayer: this.bgLayer(),
+
+      // view flags
+      isTonight: st.view === 'tonight',
+      isEntry: st.view === 'entry',
+      isWrite: st.view === 'write',
+      isPages: st.view === 'pages',
+      showComposer: st.view === 'write' && !st.justSaved,
+      justSaved: st.justSaved,
+
+      // chrome
+      navTonight: st.view === 'tonight' ? '#EAE4D6' : 'rgba(234,228,214,0.45)',
+      navPages: st.view === 'pages' ? '#EAE4D6' : 'rgba(234,228,214,0.45)',
+      navWrite: st.view === 'write' ? '#EAE4D6' : 'rgba(234,228,214,0.45)',
+      goTonight: () => { this.setState({ view: 'tonight', justSaved: null }); window.scrollTo(0, 0); },
+      goPages: () => { this.setState({ view: 'pages', justSaved: null }); window.scrollTo(0, 0); },
+      goWrite: () => { this.setState({ view: 'write', justSaved: null, inspirerId: null }); window.scrollTo(0, 0); },
+
+      // tonight
+      todayLine: this.DAYS[now.getDay()] + ' · ' + this.MONTHS[now.getMonth()] + ' ' + now.getDate(),
+      skyIntro,
+      skyEntries: sky.map((e) => this.decorate(e)),
+
+      // entry view
+      returnLabel: st.returnView === 'pages' ? '← your pages' : '← tonight’s sky',
+      goBack: () => { this.setState({ view: st.returnView }); window.scrollTo(0, 0); },
+      hasAncestors: ancestors.length > 0,
+      ancestors,
+      focalGlyph: focalDec ? focalDec.glyph : null,
+      focalMeta: focalDec ? focalDec.meta : '',
+      focalBody: focalDec ? focalDec.body : '',
+      focalRule: focalDec ? focalDec.ruleColor : 'transparent',
+      focalSigil: focal && focal.sigil ? this.sigilDecoration(focal.sigil, 150, 0.15) : null,
+      focalResonance: focalDec ? focalDec.resonance : null,
+      hasChildren: children.length > 0,
+      sparkChildren: children,
+      sparkWrite: () => {
+        if (focal) this.setState({ view: 'write', inspirerId: focal.id, justSaved: null });
+        window.scrollTo(0, 0);
+      },
+
+      // write
+      writeDateLine: 'A new page · ' + this.MONTHS[now.getMonth()] + ' ' + now.getDate(),
+      prompt: this.PROMPTS[Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000) % this.PROMPTS.length],
+      draft: st.draft,
+      onDraft: (ev) => {
+        const v = ev.target.value.slice(0, 480);
+        try { localStorage.setItem('jupiter.draft.v1', v); } catch (e) { /* ignore */ }
+        this.setState({ draft: v });
+      },
+      counterText: remaining <= 80 ? remaining + ' characters remain on this page' : '',
+      inspirerLabel: inspirer ? '“' + this.excerpt(inspirer.body, 110) + '”' : null,
+      clearInspirer: () => this.setState({ inspirerId: null }),
+      sigilOptions,
+      privateDot: !st.draftPublic ? '#C8956C' : 'transparent',
+      publicDot: st.draftPublic ? '#C8956C' : 'transparent',
+      privateColor: !st.draftPublic ? '#EAE4D6' : 'rgba(234,228,214,0.45)',
+      publicColor: st.draftPublic ? '#EAE4D6' : 'rgba(234,228,214,0.45)',
+      setPrivate: () => this.setState({ draftPublic: false }),
+      setPublic: () => this.setState({ draftPublic: true }),
+      saveLabel: st.draftPublic ? 'Place it in the sky' : 'Keep this page',
+      saveOpacity: canSave ? 1 : 0.35,
+      save: () => this.save(),
+
+      // saved confirmation
+      savedGlyph: this.moon(0.36, 22),
+      savedHeadline: st.justSaved === 'public' ? 'Placed in the sky.' : 'Kept.',
+      savedSub: st.justSaved === 'public'
+        ? 'It is unsigned, and it is not alone up there. If it stirs something in a stranger, a quiet thread may grow from it.'
+        : 'It is in your pages now, and nowhere else.',
+      writeAnother: () => this.setState({ justSaved: null }),
+
+      // pages
+      pageEntries: pages,
+    };
+  }
+}
+</script>
+</body>
+</html>
