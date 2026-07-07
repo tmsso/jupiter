@@ -38,9 +38,11 @@ To grant admin (moderation) rights, insert a row out-of-band via the SQL editor:
 - `npm run build` — production build
 - `npm run typecheck` — `tsc --noEmit`
 
-## Milestones
+## Roadmap
 
-Built milestone by milestone (ARCHITECTURE.md §5). **M1 (walking skeleton):**
-sign-in, compose (text + sigil + visibility), the diary at `/me`, plus minimal
-Commons and post views. Later milestones add the full entry cards, lineage,
-resonance, orbit/tiers, owner/admin controls, and polish.
+Built phase by phase — see [`ROADMAP.md`](./ROADMAP.md). **Done so far (M1,
+walking skeleton):** sign-in, compose (text + sigil + visibility), the diary
+at `/me`, plus minimal Commons and post views. **Next: Phase 0 repairs** —
+the 2026-07 review found the migrations do not apply cleanly and three DB
+trigger/RLS bugs (details in `ROADMAP.md` Phase 0); fix those before any new
+feature work. Future-release candidates live in [`IDEAS.md`](./IDEAS.md).

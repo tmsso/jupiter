@@ -156,22 +156,14 @@ run gte-small via Supabase AI inference -> update `posts.embedding`.
 Embeddings are computed for private posts too (the author's own resonance
 still works); privacy is enforced at query time by `resonant_posts()`.
 
-## 5. Milestones (each independently shippable)
+## 5. Milestones
 
-1. **Walking skeleton** — Supabase project, schema applied, Google login,
-   create text post, see own posts at `/me`. No styling polish.
-2. **The commons** — feed of public posts, visibility toggle, compose flow
-   with cap indicator.
-3. **The soul** — inspiration links, lineage tree, points/tiers on `/me`.
-4. **Resonance** — embedding Edge Function + resonant kin on post page.
-5. **Images** — *(backlog)* Storage upload + display; superseded by sigils in
-   the compose flow, milestone retained for a possible future image feature.
-6. **Polish & admin** — Claude Design system applied end to end; `AdminControls`
-   + admin RLS exercised; `prefers-reduced-motion` (disable twinkle + parallax);
-   PWA manifest (installable; groundwork for the later lightweight app).
-
-Sigils ship in milestone 2 (compose flow). Backlog: AI-generated images for
-text-only posts; resonance clustering; public/private stance refinements.
+**Superseded by [`ROADMAP.md`](./ROADMAP.md)** (2026-07-07 review): Phase 0
+repairs (migration + trigger bugs found in review, reproduced against a real
+Postgres) → Phase 1 foundation hardening → Phases 2–5 mapping to the old
+M2/M3/M4/M6. Images (old M5) and all other deferred ideas live in
+[`IDEAS.md`](./IDEAS.md). The original milestone list is preserved in git
+history (`aaab7c5` and earlier).
 
 ## 6. Workflow
 
